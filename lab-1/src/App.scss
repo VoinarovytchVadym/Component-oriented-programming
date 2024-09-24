@@ -16,18 +16,51 @@
     height: 34px;
     margin: 5px 40px;
     align-items: center;
-    border: 1px solid black;
-    border-radius: 6px;
     max-width: 50%;
     .SearchBar {
       outline: none;
-      margin-left: 20px;
+      height: 32px;
       width: 100%;
-      border: 0px transparent;
+      padding: 0px 10px 0px 10px;
+      background-color: #f5f5f5;
+      border: 1px solid #7a9709;
+      border-radius: 6px;
       font-size: 18px;
+      &:focus {
+        background-color: white;
+      }
     }
     .SearchButton {
       display: flex;
+      background-color: transparent;
+    }
+    .AutocompleteList {
+      position: absolute;
+      top: 36px;
+      font-size: 18px;
+      background-color: white;
+      border: 1px solid #7a9709;
+      border-radius: 6px;
+      z-index: 10;
+      max-height: 20%;
+      overflow-y: auto;
+      min-width: 20%;
+      max-width: 40%;
+      list-style-type: none;
+      padding: 0px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      .AutocompleteItem {
+        cursor: pointer;
+        text-align: center;
+        margin: 5px 0px 5px 0px;
+        border-bottom: 1px solid #eeeeee;
+        &:hover {
+          background-color: #fafafa;
+        }
+      }
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
 
@@ -40,5 +73,13 @@
 
   svg {
     cursor: pointer;
+    path {
+      stroke: #637c04;
+    }
+    g {
+      path {
+        fill: #637c04;
+      }
+    }
   }
 }
