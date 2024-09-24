@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function Header() {
   const [searchValue, setSearchValue] = useState("");
@@ -28,10 +28,6 @@ export default function Header() {
     setSearchValue(suggestion);
     setFilteredSuggestions([]);
   };
-
-  useEffect(() => {
-    console.log(history);
-  }, [history]);
 
   return (
     <div className="Header">
