@@ -1,21 +1,13 @@
 import { useState } from "react";
+import Autocomplit from "../autocomplit/Autocomplit";
 
 export default function Header() {
   const [searchValue, setSearchValue] = useState("");
   const [history, setHistory] = useState([]);
-  const [filteredSuggestions, setFilteredSuggestions] = useState([]);
 
   const handleSearchChange = (e) => {
     const value = e.target.value;
     setSearchValue(value);
-    if (value) {
-      const suggestions = history.filter((item) =>
-        item.toLowerCase().includes(value.toLowerCase())
-      );
-      setFilteredSuggestions(suggestions);
-    } else {
-      setFilteredSuggestions([]);
-    }
   };
   const handleSearchSubmit = () => {
     if (searchValue !== "") {
@@ -23,10 +15,6 @@ export default function Header() {
         setHistory((prevHistory) => [...prevHistory, searchValue]);
       setSearchValue("");
     }
-  };
-  const handleSuggestionClick = (suggestion) => {
-    setSearchValue(suggestion);
-    setFilteredSuggestions([]);
   };
 
   return (
@@ -58,19 +46,8 @@ export default function Header() {
             />
           </svg>
         </div>
-        {filteredSuggestions.length > 0 && (
-          <ul className="AutocompleteList">
-            {filteredSuggestions.map((suggestion) => (
-              <li
-                key={suggestion}
-                onClick={() => handleSuggestionClick(suggestion)}
-                className="AutocompleteItem"
-              >
-                {suggestion}
-              </li>
-            ))}
-          </ul>
-        )}
+
+        <Autocomplit searchValue={searchValue} history={history} />
       </div>
       <div className="IconsBlock">
         <svg
