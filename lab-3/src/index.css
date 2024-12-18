@@ -1,0 +1,82 @@
+/* Корінь документа */
+:root {
+  --primary-color: #0e2f4b; /* Основний колір */
+  --secondary-color: #99a2aa; /* Додатковий колір */
+  --background-color: #f8f8f8; /* Колір фону */
+}
+
+/* Загальні стилі для html та body */
+html,
+body {
+  width: 100%;
+  height: 100%; /* Встановлюємо висоту на 100% для html і body */
+  margin: 0; /* Видаляємо стандартні відступи */
+  padding: 0; /* Видаляємо стандартні відступи */
+  font-family: "Arial", sans-serif; /* Встановлюємо стандартний шрифт */
+  color: var(--primary-color); /* Використовуємо основний колір для тексту */
+}
+
+/* Стилі для body */
+body {
+  background-color: var(--background-color); /* Фоновий колір */
+  display: flex;
+  justify-content: center; /* Центрування по горизонталі */
+  align-items: center; /* Центрування по вертикалі */
+  height: 100vh; /* Забезпечує, щоб body займало всю висоту екрану */
+  width: 100%; /* Переконуємось, що body займає всю ширину */
+}
+
+#root {
+  width: 100%; /* Дозволяємо займати всю ширину */
+  height: 100%; /* Дозволяємо займати всю висоту */
+  display: flex; /* За необхідності можна додавати flex для організації дочірніх елементів */
+  justify-content: center; /* Центрування контенту */
+  align-items: center; /* Центрування контенту */
+}
+
+/* Глобальні стилі для тексту */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Стилі для посилань */
+a {
+  text-decoration: none; /* Видаляємо підкреслення */
+  color: var(--primary-color); /* Колір тексту */
+  &:hover {
+    color: var(--secondary-color); /* Зміна кольору при наведенні */
+  }
+}
+
+/* Кнопки */
+button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  &:hover {
+    background-color: darken(var(--primary-color), 10%);
+  }
+}
+
+/* Клас для центрованих елементів */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
